@@ -1,0 +1,9 @@
+const characterCard = () => {
+    return (
+      <div>
+        <h1>Character Card</h1>
+      </div>
+    );
+  };
+
+  export default characterCard;
