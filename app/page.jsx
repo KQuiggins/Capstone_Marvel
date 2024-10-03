@@ -1,5 +1,8 @@
 import { Button } from "@/components/ui/button"
-import { ShieldCheck, Search, Info, Mail, LucideGithub , Twitter } from "lucide-react"
+import { RiTwitterXLine } from "react-icons/ri";
+import { FaGithub } from "react-icons/fa";
+import { GiBatMask } from "react-icons/gi";
+import { ShieldCheck, Search, Info, Mail} from "lucide-react"
 import Link from "next/link"
 import Image from "next/image"
 
@@ -12,7 +15,7 @@ export default async function Home() {
     <div className="flex flex-col min-h-screen bg-white">
       <header className="px-4 lg:px-6 h-14 flex items-center">
         <Link className="flex items-center justify-center" href="#">
-          <ShieldCheck className="h-6 w-6 text-red-600" />
+          <GiBatMask className="h-6 w-6 text-red-600" />
           <span className="sr-only">Marvel Explorer</span>
         </Link>
         <nav className="ml-auto flex gap-4 sm:gap-6">
@@ -54,7 +57,7 @@ export default async function Home() {
                 alt="Marvel Characters"
                 className="mx-auto aspect-video overflow-hidden rounded-xl object-cover object-center sm:w-full lg:order-last"
                 height="550"
-                src="/placeholder.svg"
+                src="/images/hero.jpg"
                 width="550"
               />
             </div>
@@ -64,14 +67,14 @@ export default async function Home() {
       <footer className="flex flex-col gap-2 sm:flex-row py-6 w-full shrink-0 items-center px-4 md:px-6 border-t border-gray-200">
         <p className="text-xs text-gray-500">© 2024 Marvel Character Explorer. All rights reserved.</p>
         <nav className="sm:ml-auto flex gap-4 sm:gap-6">
-          {/* <Link className="text-xs hover:underline underline-offset-4" href="#">
-            <Github className="h-4 w-4" />
+          <Link className="text-xs hover:underline underline-offset-4" href="#">
+              <FaGithub />
             <span className="sr-only">GitHub</span>
           </Link>
           <Link className="text-xs hover:underline underline-offset-4" href="#">
-            <Twitter className="h-4 w-4" />
+            <RiTwitterXLine />
             <span className="sr-only">Twitter</span>
-          </Link> */}
+          </Link>
         </nav>
       </footer>
     </div>
