@@ -3,7 +3,7 @@ import "./globals.css";
 import localFont from 'next/font/local'
 
 const maskedMarvelBold = localFont({
-  src: "./fonts/maskedMarvelBold.ttf",
+  src: "../public/fonts/MaskedMarvelBold.ttf",
   variable: "--marvel-header",
   weight: "400 900",
 });
