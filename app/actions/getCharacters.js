@@ -1,4 +1,4 @@
-// app/actions/fetchMarvelCharacters.js
+
 
 import generateMarvelAuth from '@/utils/marvelAuth';
 
