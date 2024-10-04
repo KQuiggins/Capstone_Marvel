@@ -4,7 +4,7 @@ import generateMarvelAuth from '@/utils/marvelAuth';
 
 export async function fetchMarvelCharacters() {
   const { publicKey, hash, ts } = generateMarvelAuth();
-  const url = `https://gateway.marvel.com/v1/public/characters?apikey=${publicKey}&hash=${hash}&ts=${ts}`;
+  const url = `https://gateway.marvel.com/v1/public/characters?ts=${ts}&apikey=${publicKey}&hash=${hash}`;
 
   try {
     const response = await fetch(url);
