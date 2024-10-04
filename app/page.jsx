@@ -2,13 +2,14 @@ import { Button } from "@/components/ui/button"
 import { RiTwitterXLine } from "react-icons/ri";
 import { FaGithub } from "react-icons/fa";
 import { GiBatMask } from "react-icons/gi";
-import { ShieldCheck, Search, Info, Mail} from "lucide-react"
+import { ShieldCheck, Search, Info, Mail } from "lucide-react"
 import Link from "next/link"
 import Image from "next/image"
 
+
+
+
 export default async function Home() {
-
-
 
 
   return (
@@ -39,7 +40,7 @@ export default async function Home() {
             <div className="grid gap-6 lg:grid-cols-[1fr_400px] lg:gap-12 xl:grid-cols-[1fr_600px]">
               <div className="flex flex-col justify-center space-y-4">
                 <div className="space-y-2">
-                  <h1 className="text-3xl font-bold tracking-tighter sm:text-5xl xl:text-6xl/none text-red-600">
+                  <h1 className={`font-marvel_header text-3xl font-bold tracking-wide sm:text-5xl xl:text-6xl/none text-red-600`}>
                     Explore the Marvel Universe
                   </h1>
                   <p className="max-w-[600px] text-gray-500 md:text-xl">
@@ -68,7 +69,7 @@ export default async function Home() {
         <p className="text-xs text-gray-500">© 2024 Marvel Character Explorer. All rights reserved.</p>
         <nav className="sm:ml-auto flex gap-4 sm:gap-6">
           <Link className="text-xs hover:underline underline-offset-4" href="#">
-              <FaGithub />
+            <FaGithub />
             <span className="sr-only">GitHub</span>
           </Link>
           <Link className="text-xs hover:underline underline-offset-4" href="#">
