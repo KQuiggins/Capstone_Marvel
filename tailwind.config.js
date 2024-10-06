@@ -12,8 +12,10 @@ module.exports = {
 		  sans: ['var(--font-geist-sans)', 'sans-serif'],
 		  mono: ['var(--font-geist-mono)', 'monospace'],
 		  marvel_header: ['var(--marvel-header)', 'serif'],
-		  marvel_light: ['var(--font-masked-marvel-light)', 'sans-serif'],
-		}, // <-- Corrected brace here
+		  
+		  marvel_cursive: ['var(--marvel-cursive)', 'Roboto', 'sans-serif'],
+		  marvel_avenge: ['var(--marvel-avenge)', 'serif'],
+		},
 		colors: {
 		  background: 'var(--background)',
 		  foreground: 'var(--foreground)',

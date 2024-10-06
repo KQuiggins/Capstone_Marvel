@@ -8,6 +8,18 @@ const maskedMarvelBold = localFont({
   weight: "400 900",
 });
 
+const marvelCursive = localFont({
+  src: "../public/fonts/MarvelCursive.otf",
+  variable: "--marvel-cursive",
+  weight: "400",
+});
+
+const avengeRegular = localFont({
+  src: "../public/fonts/AvengeRegular2.ttf",
+  variable: "--marvel-avenge",
+  weight: "400",
+});
+
 export const metadata = {
   title: "Marvel Explorer",
   description: "Explore the Marvel Universe",
@@ -16,7 +28,7 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body className={`${maskedMarvelBold.variable} font-sans`}>
+      <body className={`${maskedMarvelBold.variable} ${marvelCursive.variable} ${avengeRegular.variable} font-sans`}>
         {children}
       </body>
     </html>
