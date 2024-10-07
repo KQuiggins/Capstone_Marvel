@@ -10,26 +10,26 @@ const Header = () => {
         </Link>
         <nav className="ml-auto flex gap-4 sm:gap-6">
           <Link
-            className="text-2xl font-medium hover:underline underline-offset-4 font-marvel_cursive"
-            href="#"
+            className="text-2xl text-bold text-red-600 font-medium hover:underline underline-offset-4 font-marvel_cursive"
+            href="/"
           >
             Home
           </Link>
           <Link
-            className="text-2xl font-medium hover:underline underline-offset-4 font-marvel_cursive"
-            href="#"
+            className="text-2xl text-bold text-red-600 font-medium hover:underline underline-offset-4 font-marvel_cursive"
+            href="/gallery"
           >
             Gallery
           </Link>
           <Link
-            className="text-2xl font-medium hover:underline underline-offset-4 font-marvel_cursive"
-            href="#"
+            className="text-2xl text-bold text-red-600 font-medium hover:underline underline-offset-4 font-marvel_cursive"
+            href="/about"
           >
             About
           </Link>
           <Link
-            className="text-2xl font-medium hover:underline underline-offset-4 font-marvel_cursive"
-            href="#"
+            className="text-2xl text-bold text-red-600 font-medium hover:underline underline-offset-4 font-marvel_cursive"
+            href="/contact"
           >
             Contact
           </Link>

@@ -1,14 +1,14 @@
 // utils/marvelAuth.js
 
 import crypto from 'crypto';
-import dotenv from 'dotenv';
-dotenv.config();
+
 
 function generateMarvelAuth() {
   const ts = Date.now().toString(); // Milliseconds since epoch as a string
   const publicKey = process.env.PUBLIC_MARVEL_KEY;
   const privateKey = process.env.PRIVATE_MARVEL_KEY;
-
+  console.log(publicKey, privateKey);
+  
   if (!publicKey || !privateKey) {
     throw new Error(
       'Public or private API keys are missing in the environment variables.',

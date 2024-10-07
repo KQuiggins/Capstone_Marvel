@@ -14,7 +14,6 @@
 		"class-variance-authority": "^0.7.0",
 		"clsx": "^2.1.1",
 		"crypto": "^1.0.1",
-		"dotenv": "^16.4.5",
 		"lucide-react": "^0.447.0",
 		"marvel-capstone": "file:",
 		"next": "14.2.14",

@@ -23,6 +23,8 @@ export default function MarvelGallery() {
     loadCharacters()
   }, [page])
 
+  
+
   const handleNext = () => setPage(prevPage => prevPage + 1)
   const handlePrev = () => setPage(prevPage => Math.max(prevPage - 1, 1))
 

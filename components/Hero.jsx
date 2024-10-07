@@ -36,6 +36,7 @@ const Hero = () => {
                             height={550}
                             src="/images/hero.jpg"
                             width={550}
+                            priority={true}
                         />
                     </div>
                 </div>
