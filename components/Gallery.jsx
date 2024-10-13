@@ -2,7 +2,7 @@
 import { useEffect, useState } from 'react'
 import { fetchMarvelCharacters } from '@/app/actions/getCharacters'
 import CharacterCard from '@/components/characterCard'
-import loadingSpinner from '@/app/loading' 
+import Spinner from './Spinner'
 
 
 export default function MarvelGallery() {
@@ -14,7 +14,7 @@ export default function MarvelGallery() {
 
   useEffect(() => {
     const loadCharacters = async () => {
-      setLoading(true) 
+      setLoading(true)
       const offset = (page - 1) * limit
       try {
         const fetchedCharacters = await fetchMarvelCharacters(offset, limit)
@@ -26,7 +26,7 @@ export default function MarvelGallery() {
       } catch (error) {
         setError('Failed to load characters')
       } finally {
-        setLoading(false) 
+        setLoading(false)
       }
     }
 
@@ -43,11 +43,11 @@ export default function MarvelGallery() {
       <header className="bg-red-600 text-white py-4 text-center">
         <h1>Marvel Gallery</h1>
       </header>
-      
+
       <main className="flex-grow">
         {loading ? (
           <div className="flex justify-center items-center h-full">
-            <loadingSpinner loading={loading} /> 
+            <Spinner loading={loading} />
           </div>
         ) : (
           <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 p-4">
@@ -64,7 +64,7 @@ export default function MarvelGallery() {
           </div>
         )}
       </main>
-      
+
       <footer className="bg-red-600 text-white py-4">
         <div className="flex justify-between mx-auto max-w-2xl px-4">
           <button
