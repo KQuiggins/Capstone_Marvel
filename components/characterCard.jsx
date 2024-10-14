@@ -7,9 +7,14 @@ import Image from "next/image"
 export default function CharacterCard({
   name = "Iron Man",
   description = "Genius inventor Tony Stark creates a suit of armor that gives him superhuman abilities and turns him into the technologically advanced superhero Iron Man.",
-  imageUrl = "/placeholder.svg",
+  imageUrl = "/images/iron-man.jpg",
   comicsCount = 2678
 }) {
+
+   // Check if the imageUrl contains 'image_not_available', and fallback to placeholder
+   const isImageUnavailable = imageUrl.includes('image_not_available')
+   const displayImageUrl = isImageUnavailable ? '/images/placeholder.jpg' : imageUrl
+
   return (
     <div className="px-4">
       <Card className="w-full max-w-sm mx-auto overflow-hidden">
@@ -17,7 +22,7 @@ export default function CharacterCard({
           <div className="relative w-full pt-[100%]">
             <Image
               alt={name}
-              src={imageUrl}
+              src={displayImageUrl}
               width={250}
               height={250}
               priority={true}
