@@ -2,6 +2,7 @@
 import { useEffect, useState } from 'react'
 import { fetchMarvelCharacters } from '@/app/actions/getCharacters'
 import CharacterCard from '@/components/characterCard'
+import  {Button}  from '@/components/ui/button'
 import Spinner from './Spinner'
 
 
@@ -67,21 +68,23 @@ export default function MarvelGallery() {
 
       <footer className="bg-red-600 text-white py-4">
         <div className="flex justify-between mx-auto max-w-2xl px-4">
-          <button
+          <Button
             onClick={handlePrev}
             disabled={page === 1 || loading}
-            className="px-4 py-2 bg-blue-500 text-white rounded disabled:bg-gray-400"
+            variant="default"
+            size="default"
           >
             Prev
-          </button>
+          </Button>
           <span className="px-4 py-2">Page {page}</span>
-          <button
+          <Button
             onClick={handleNext}
             disabled={loading}
-            className="px-4 py-2 bg-blue-500 text-white rounded"
+            variant="default"
+            size="default"
           >
             Next
-          </button>
+          </Button>
         </div>
       </footer>
     </div>
