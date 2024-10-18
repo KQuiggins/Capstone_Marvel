@@ -55,6 +55,7 @@ export default function MarvelGallery() {
             {characters.map(character => (
               <div key={character.id} className="w-full max-w-sm mx-auto overflow-hidden">
                 <CharacterCard
+                  id={character.id}
                   name={character.name}
                   description={character.description}
                   imageUrl={`${character.thumbnail.path}.${character.thumbnail.extension}`}

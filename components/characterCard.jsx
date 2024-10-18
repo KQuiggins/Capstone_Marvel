@@ -3,17 +3,24 @@ import { Card, CardContent, CardFooter, CardHeader } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
 import { Info } from "lucide-react"
 import Image from "next/image"
+import { useRouter } from "next/router"
 
 export default function CharacterCard({
+  id,
   name = "Iron Man",
   description = "Genius inventor Tony Stark creates a suit of armor that gives him superhuman abilities and turns him into the technologically advanced superhero Iron Man.",
   imageUrl = "/images/iron-man.jpg",
   comicsCount = 2678
 }) {
+  const router = useRouter()
 
-   // Check if the imageUrl contains 'image_not_available', and fallback to placeholder
-   const isImageUnavailable = imageUrl.includes('image_not_available')
-   const displayImageUrl = isImageUnavailable ? '/images/placeholder.jpg' : imageUrl
+  // Check if the imageUrl contains 'image_not_available', and fallback to placeholder
+  const isImageUnavailable = imageUrl.includes('image_not_available')
+  const displayImageUrl = isImageUnavailable ? '/images/placeholder.jpg' : imageUrl
+
+  const handleLearnMore = () => {
+    router.push(`/character/${id}`)
+  }
 
   return (
     <div className="px-4">
@@ -27,7 +34,6 @@ export default function CharacterCard({
               height={250}
               priority={true}
               className="absolute top-0 left-0 w-full h-full object-contain"
-
             />
           </div>
         </CardHeader>
@@ -39,7 +45,7 @@ export default function CharacterCard({
           </Badge>
         </CardContent>
         <CardFooter className="p-4 pt-0">
-          <Button className="w-full bg-red-600 hover:bg-red-700">
+          <Button className="w-full bg-red-600 hover:bg-red-700" onClick={handleLearnMore}>
             Learn More
             <Info className="ml-2 h-4 w-4" />
           </Button>
