@@ -2,9 +2,13 @@
 
 import generateMarvelAuth from '@/utils/marvelAuth';
 
-export async function fetchMarvelCharacters(offset = 0, limit = 20) {
+export async function fetchMarvelCharacters(offset = 0, limit = 20, query = '') {
   const { publicKey, hash, ts } = generateMarvelAuth();
-  const url = `https://gateway.marvel.com/v1/public/characters?limit=${limit}&offset=${offset}&ts=${ts}&apikey=${publicKey}&hash=${hash}`;
+  let url = `https://gateway.marvel.com/v1/public/characters?limit=${limit}&offset=${offset}&ts=${ts}&apikey=${publicKey}&hash=${hash}`;
+
+  if (query) {
+    url += `&nameStartsWith=${query}`;
+  }
 
   try {
     const response = await fetch(url);
