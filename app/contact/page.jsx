@@ -1,6 +1,8 @@
+'use client'
 import { useState } from 'react';
 import { Input } from '@/components/ui/input';
 import { Button } from '@/components/ui/button';
+import { submitContactForm } from '@/app/actions/submitContactForm';
 
 const ContactPage = () => {
   const [formData, setFormData] = useState({
@@ -19,8 +21,18 @@ const ContactPage = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    // Call the server action to submit the form data
-    // P8511
+    const response = await submitContactForm(formData);
+    if (response.status === 'success') {
+      alert('Message sent successfully!');
+      setFormData({
+        name: '',
+        email: '',
+        message: ''
+      });
+    } else {
+      alert('An error occurred. Please try again later.');
+    }
+    
   };
 
   return (
