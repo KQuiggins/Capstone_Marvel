@@ -1,5 +1,8 @@
-const ContactPage = () => {
-    return <div>Contact</div>
-}
+'use client';
+import ContactForm from '@/components/ContactForm';
 
-export default ContactPage
+const ContactPage = () => {
+	return <ContactForm />;
+};
+
+export default ContactPage;
