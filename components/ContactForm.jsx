@@ -4,6 +4,8 @@ import { useState } from 'react';
 import { Input } from '@/components/ui/input';
 import { Button } from '@/components/ui/button';
 import { submitContactForm } from '@/app/actions/submitContactForm';
+import { toast, ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const ContactForm = () => {
 	const [formData, setFormData] = useState({
@@ -24,14 +26,14 @@ const ContactForm = () => {
 		e.preventDefault();
 		const response = await submitContactForm(formData);
 		if (response.status === 'success') {
-			alert('Message sent successfully!');
+			toast.success('Message sent successfully!');
 			setFormData({
 				name: '',
 				email: '',
 				message: '',
 			});
 		} else {
-			alert('An error occurred. Please try again later.');
+			toast.error('An error occurred. Please try again later.');
 		}
 	};
 
@@ -103,6 +105,7 @@ const ContactForm = () => {
 						Submit
 					</Button>
 				</form>
+				<ToastContainer />
 			</div>
 		</div>
 	);
