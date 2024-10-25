@@ -5,7 +5,7 @@ import { Input } from '@/components/ui/input';
 import { Button } from '@/components/ui/button';
 import { submitContactForm } from '@/app/actions/submitContactForm';
 import { toast, ToastContainer } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
+
 
 const ContactForm = () => {
 	const [formData, setFormData] = useState({
