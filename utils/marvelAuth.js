@@ -7,8 +7,8 @@ function generateMarvelAuth() {
   const ts = Date.now().toString(); // Milliseconds since epoch as a string
   const publicKey = process.env.PUBLIC_MARVEL_KEY;
   const privateKey = process.env.PRIVATE_MARVEL_KEY;
-  
-  
+
+
   if (!publicKey || !privateKey) {
     throw new Error(
       'Public or private API keys are missing in the environment variables.',

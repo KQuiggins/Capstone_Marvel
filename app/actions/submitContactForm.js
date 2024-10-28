@@ -3,14 +3,14 @@
 import sqlite3 from 'sqlite3'
 import { open } from 'sqlite'
 
-async function openDb () {
+async function openDb() {
   return open({
     filename: './database.sqlite',
     driver: sqlite3.Database
   })
 }
 
-export async function submitContactForm (data) {
+export async function submitContactForm(data) {
   const db = await openDb()
 
   try {

@@ -28,6 +28,6 @@
   }
 
   .contact-form-button {
-    @apply bg-red-600 hover:bg-red-700 text-white;
+    @apply bg-red-600 text-white hover:bg-red-700;
   }
 }

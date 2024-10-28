@@ -3,7 +3,7 @@
 
 import generateMarvelAuth from '@/utils/marvelAuth'
 
-export async function fetchMarvelCharacterById (id) {
+export async function fetchMarvelCharacterById(id) {
   const { publicKey, hash, ts } = generateMarvelAuth()
   const url = `https://gateway.marvel.com/v1/public/characters/${id}?ts=${ts}&apikey=${publicKey}&hash=${hash}`
 

@@ -68,29 +68,29 @@ export default function MarvelGallery() {
 			</header>
 
 
-      <main className="flex-grow">
-        {loading ? (
-          <div className="flex justify-center items-center h-full">
-            <Spinner loading={loading} />
-          </div>
-        ) : (
-          <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 p-4">
-            {characters.map(character => (
-              <div key={character.id} className="w-full max-w-sm mx-auto overflow-hidden">
-                <CharacterCard
-                  id={character.id}
-                  name={character.name}
-                  description={character.description}
-                  imageUrl={`${character.thumbnail.path}.${character.thumbnail.extension}`}
-                  comicsCount={character.comics.available}
-                />
-              </div>
-            ))}
-          </div>
-        )}
-      </main>
+			<main className="flex-grow">
+				{loading ? (
+					<div className="flex justify-center items-center h-full">
+						<Spinner loading={loading} />
+					</div>
+				) : (
+					<div className="grid grid-cols-1 gap-4 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 p-4">
+						{characters.map(character => (
+							<div key={character.id} className="w-full max-w-sm mx-auto overflow-hidden">
+								<CharacterCard
+									id={character.id}
+									name={character.name}
+									description={character.description}
+									imageUrl={`${character.thumbnail.path}.${character.thumbnail.extension}`}
+									comicsCount={character.comics.available}
+								/>
+							</div>
+						))}
+					</div>
+				)}
+			</main>
 
-			
+
 
 			<footer className='bg-red-600 text-white py-4'>
 				<div className='flex justify-between mx-auto max-w-2xl px-4'>

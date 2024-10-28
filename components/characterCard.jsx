@@ -18,7 +18,7 @@ export default function CharacterCard({
 	imageUrl = '/images/iron-man.jpg',
 	comicsCount = 2678,
 }) {
-	
+
 
 	// Check if the imageUrl contains 'image_not_available', and fallback to placeholder
 	const isImageUnavailable = imageUrl.includes('image_not_available');
@@ -26,7 +26,7 @@ export default function CharacterCard({
 		? '/images/placeholder.jpg'
 		: imageUrl;
 
-	
+
 
 	return (
 		<div className='px-4'>
