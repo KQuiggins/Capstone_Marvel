@@ -6,6 +6,7 @@ import CharacterCard from '@/components/characterCard';
 import MarvelSearchBar from './Searchbar';
 import { Button } from '@/components/ui/button';
 import Spinner from './Spinner';
+import Head from 'next/head';
 
 export default function MarvelGallery() {
 	const [characters, setCharacters] = useState([]);
@@ -47,6 +48,10 @@ export default function MarvelGallery() {
 	if (error) return <p>{error}</p>;
 
 	return (
+		<>
+		<Head>
+			<title>Marvel Characters</title>
+		</Head>
 		<div className='flex flex-col min-h-screen'>
 			<header className='bg-red-600 text-white py-4'>
 				<div className='flex justify-between items-center max-w-7xl mx-auto px-4'>
@@ -109,5 +114,6 @@ export default function MarvelGallery() {
 				</div>
 			</footer>
 		</div>
+		</>
 	);
 }

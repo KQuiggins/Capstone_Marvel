@@ -9,6 +9,7 @@ export async function fetchMarvelCharacterById (id) {
 
   try {
     const response = await fetch(url)
+    
 
     if (!response.ok) {
       const errorData = await response.json()
@@ -17,6 +18,7 @@ export async function fetchMarvelCharacterById (id) {
     }
 
     const data = await response.json()
+    console.log(data.results)
     return data.data.results[0] // Return the first result, which is the character
   } catch (error) {
     console.error('Error fetching Marvel character by id:', error)
