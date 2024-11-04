@@ -12,6 +12,20 @@ Marvel Character Gallery is a web application that allows users to explore vario
 
 You need to have Node.js and npm (or yarn, pnpm, bun) installed on your machine.
 
+### Getting a Marvel API Key
+
+1. **Sign Up for a Marvel Developer Account**
+
+   First, go to the Marvel Developer Portal website and click “Get Started” to create a developer account. You’ll need to give your name, email, and password.
+
+2. **Read and Accept Terms of Use**
+
+3. **Get Your API Key**
+
+   Once you accept the Marvel API Terms of Service, you’ll be given a public and private API key, which you’ll need to authenticate all API requests. Keep your private key secure and regenerate it if you need to.
+
+For a detailed how-to guide on getting your key, visit [Marvel Developer Documentation](https://developer.marvel.com/documentation/getting_started).
+
 ### Installation
 
 First, clone the repository:
