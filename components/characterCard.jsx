@@ -10,7 +10,6 @@ import { Info } from 'lucide-react';
 import Image from 'next/image';
 import Link from 'next/link';
 
-
 export default function CharacterCard({
 	id,
 	name = 'Iron Man',
@@ -18,15 +17,11 @@ export default function CharacterCard({
 	imageUrl = '/images/iron-man.jpg',
 	comicsCount = 2678,
 }) {
-
-
 	// Check if the imageUrl contains 'image_not_available', and fallback to placeholder
 	const isImageUnavailable = imageUrl.includes('image_not_available');
 	const displayImageUrl = isImageUnavailable
 		? '/images/placeholder.jpg'
 		: imageUrl;
-
-
 
 	return (
 		<div className='px-4'>
@@ -60,6 +55,14 @@ export default function CharacterCard({
 						</Button>
 					</Link>
 				</CardFooter>
+				<div className='text-sm text-gray-600 mt-2 mb-4 text-center'>
+					<a
+						href='http://marvel.com'
+						className='hover:text-red-500 hover:underline transition-colors duration-300'
+					>
+						Data provided by Marvel. © 2024 MARVEL
+					</a>
+				</div>
 			</Card>
 		</div>
 	);
