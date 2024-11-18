@@ -1,7 +1,14 @@
-// fetchCharacterById.js
+
 'use server'
 
 import generateMarvelAuth from '@/utils/marvelAuth'
+
+/**
+ * Fetches a Marvel character by ID.
+ *
+ * @param {string} id - The ID of the Marvel character to fetch.
+ * @returns {Promise<Object|null>} The Marvel character data or null if an error occurs.
+ */
 
 export async function fetchMarvelCharacterById(id) {
   const { publicKey, hash, ts } = generateMarvelAuth()
@@ -18,7 +25,7 @@ export async function fetchMarvelCharacterById(id) {
     }
 
     const data = await response.json()
-    console.log(data.results)
+   
     return data.data.results[0] // Return the first result, which is the character
   } catch (error) {
     console.error('Error fetching Marvel character by id:', error)

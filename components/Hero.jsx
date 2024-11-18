@@ -3,6 +3,17 @@ import { Search } from "lucide-react";
 import Link from "next/link";
 import Image from "next/image";
 
+
+/**
+ * Hero component for the Marvel Explorer application.
+ * 
+ * This component renders the main hero section of the page, showcasing a call-to-action
+ * to explore the Marvel gallery and an image of Marvel characters. It includes a headline,
+ * description, and navigation button.
+ * 
+ * @component 
+ * @returns {JSX.Element} Hero component for the application
+ */
 const Hero = () => {
     return (
         <main className="flex-1">

@@ -2,6 +2,11 @@ import Link from 'next/link'
 import { RiTwitterXLine } from "react-icons/ri";
 import { FaGithub } from "react-icons/fa";
 
+/**
+ * Footer component for the application.
+ *
+ * @returns {JSX.Element} The rendered footer component.
+ */
 const Footer = () => {
   return (
     <footer className="flex flex-col gap-2 sm:flex-row py-6 w-full shrink-0 items-center px-4 md:px-6 border-t border-gray-200">

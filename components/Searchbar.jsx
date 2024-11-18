@@ -5,9 +5,32 @@ import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Search } from 'lucide-react';
 
+
+/**
+ * MarvelSearchBar component for the Marvel Explorer application.
+ * 
+ * This component provides a search bar for filtering Marvel characters. It takes a callback
+ * function as a prop to notify the parent component when the search term changes.
+ * 
+ * @component
+ * @param {Object} props - The props object.
+ * @param {function} props.onSearchChange - Callback function invoked with the search term 
+ * when the form is submitted.
+ * @returns {JSX.Element} The MarvelSearchBar component.
+ */
 export default function MarvelSearchBar({ onSearchChange }) {
+	/**
+	 * State to store the search term entered by the user.
+	 * @type {string}
+	 */
 	const [searchTerm, setSearchTerm] = useState('');
 
+	/**
+	 * Handles the form submission event and invokes the callback function with the search term.
+	 * Prevents the default form submission behavior and calls the onSearchChange 
+     * callback with the current search term.
+	 * @param {React.FormEvent<HTMLFormElement>} e - The form submission event.
+	 */
 	const handleSearch = (e) => {
 		e.preventDefault();
 		onSearchChange(searchTerm);

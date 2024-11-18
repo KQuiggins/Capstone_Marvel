@@ -10,6 +10,16 @@ import { Info } from 'lucide-react';
 import Image from 'next/image';
 import Link from 'next/link';
 
+/**
+ * CharacterCard component displays information about a character.
+ *
+ * @param {Object} props - Component properties.
+ * @param {string} props.name - The name of the character.
+ * @param {string} props.description - A brief description of the character.
+ * @param {string} props.imageUrl - URL of the character's image.
+ * @param {number} props.comicsCount - Number of comics the character appears in.
+ */
+
 export default function CharacterCard({
 	id,
 	name = 'Iron Man',

@@ -7,6 +7,12 @@ import { submitContactForm } from '@/app/actions/submitContactForm';
 import { toast, ToastContainer } from 'react-toastify';
 import Head from 'next/head';
 
+/**
+ * Renders the contact form and handles form submission.
+ *
+ * @returns {JSX.Element} The contact form component.
+ */
+
 const ContactForm = () => {
 	const [formData, setFormData] = useState({
 		name: '',
@@ -14,6 +20,11 @@ const ContactForm = () => {
 		message: '',
 	});
 
+	/**
+	 * Updates the form data state when input fields change.
+	 *
+	 * @param {React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>} e - The input change event.
+	 */
 	const handleChange = (e) => {
 		const { name, value } = e.target;
 		setFormData({
@@ -22,6 +33,11 @@ const ContactForm = () => {
 		});
 	};
 
+	/**
+	 * Handles form submission, sends data, and shows notifications.
+	 *
+	 * @param {React.FormEvent<HTMLFormElement>} e - The form submission event.
+	 */
 	const handleSubmit = async (e) => {
 		e.preventDefault();
 		const response = await submitContactForm(formData);
