@@ -20,6 +20,12 @@ const ContactForm = () => {
 		message: '',
 	});
 
+	const [errors, setErrors] = useState({
+		name: '',
+		email: '',
+		message: '',
+	});
+
 	/**
 	 * Updates the form data state when input fields change.
 	 *
@@ -34,22 +40,62 @@ const ContactForm = () => {
 	};
 
 	/**
+	 * Validates the form data and sets error messages if validation fails.
+	 *
+	 * @returns {boolean} True if the form data is valid, false otherwise.
+	 */
+	const validateForm = () => {
+		let valid = true;
+		const newErrors = {
+			name: '',
+			email: '',
+			message: '',
+		};
+
+		if (formData.name.length < 2) {
+			newErrors.name = 'Name must be at least 2 characters long.';
+			valid = false;
+		}
+
+		const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+		if (!emailRegex.test(formData.email)) {
+			newErrors.email = 'Please enter a valid email address.';
+			valid = false;
+		}
+
+		if (formData.message.length < 10) {
+			newErrors.message = 'Message must be at least 10 characters long.';
+			valid = false;
+		}
+
+		setErrors(newErrors);
+		return valid;
+	};
+
+	/**
 	 * Handles form submission, sends data, and shows notifications.
 	 *
 	 * @param {React.FormEvent<HTMLFormElement>} e - The form submission event.
 	 */
 	const handleSubmit = async (e) => {
 		e.preventDefault();
-		const response = await submitContactForm(formData);
-		if (response.status === 'success') {
-			toast.success('Message sent successfully!');
-			setFormData({
-				name: '',
-				email: '',
-				message: '',
-			});
-		} else {
-			toast.error('An error occurred. Please try again later.');
+		if (validateForm()) {
+			const response = await submitContactForm(formData);
+			if (response.status === 'success') {
+				toast.success('Message sent successfully!');
+				setFormData({
+					name: '',
+					email: '',
+					message: '',
+				});
+				setErrors({
+					name: '',
+					email: '',
+					message: '',
+				});
+			} else {
+				toast.error('An error occurred. Please try again later.');
+			}
 		}
 	};
 
@@ -80,13 +126,16 @@ const ContactForm = () => {
 								className='mt-1 block w-full p-2 border border-red-300 rounded-md shadow-sm focus:border-red-500 focus:ring-2 focus:ring-red-500 focus:outline-none'
 								required
 							/>
+							{errors.name && (
+								<p className='text-red-500 text-sm mt-1'>{errors.name}</p>
+							)}
 						</div>
 
 						<div>
 							<label
 								htmlFor='email'
 								className='block font-medium text-red-700 font-marvel_cursive text-lg'
-							>
+								>
 								Email
 							</label>
 							<Input
@@ -98,6 +147,9 @@ const ContactForm = () => {
 								className='mt-1 block w-full p-2 border border-red-300 rounded-md shadow-sm focus:border-red-500 focus:ring-2 focus:ring-red-500'
 								required
 							/>
+							{errors.email && (
+								<p className='text-red-500 text-sm mt-1'>{errors.email}</p>
+							)}
 						</div>
 
 						<div>
@@ -116,6 +168,9 @@ const ContactForm = () => {
 								rows='4'
 								required
 							/>
+							{errors.message && (
+								<p className='text-red-500 text-sm mt-1'>{errors.message}</p>
+							)}
 						</div>
 
 						<Button
