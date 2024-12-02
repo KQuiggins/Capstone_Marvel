@@ -1,8 +1,11 @@
 import { Shield, Zap, BookOpen } from 'lucide-react';
+import Header from '@/components/Header';
 import Link from 'next/link';
 
 const AboutPage = () => {
 	return (
+		<>
+		<Header />
 		<div className='min-h-screen bg-gradient-to-br from-red-700 via-red-500 to-pink-500 text-gray-100 flex items-center justify-center p-4'>
 			<div className='max-w-3xl bg-gradient-to-b from-gray-900 to-gray-800 rounded-lg shadow-2xl p-8 border border-red-300'>
 				<h1 className='text-4xl font-bold mb-6 text-center text-red-300'>
@@ -49,6 +52,7 @@ const AboutPage = () => {
 				</div>
 			</div>
 		</div>
+	</>
 	);
 };
 

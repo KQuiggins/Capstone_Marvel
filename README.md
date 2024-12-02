@@ -116,4 +116,7 @@ bun test
 
 - [Next.js](https://nextjs.org/)
 - [React](https://reactjs.org/)
-- [Jest](https://jestjs.io/)
+- [Tailwind CSS](https://tailwindcss.com/)
+- [SQLite](https://www.sqlite.org/index.html)
+- [react-icons](https://react-icons.github.io/react-icons/)
+- [lucide-react](https://lucide.netlify.app/)
