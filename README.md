@@ -54,6 +54,10 @@ Create a `.env.local` file in the root directory of the project and add the foll
 ```bash
 PUBLIC_MARVEL_KEY=<your-marvel-api-public-key>
 PRIVATE_MARVEL_KEY=<your-marvel-api-private-key>
+APPWRITE_ENDPOINT=<your-appwrite-endpoint>
+APPWRITE_PROJECT_ID=<your-appwrite-project-id>
+APPWRITE_DATABASE_ID=<your-appwrite-database-id>
+APPWRITE_COLLECTION_ID=<your-appwrite-collection-id>
 ```
 
 ### Running the Project
@@ -112,11 +116,42 @@ pnpm test
 bun test
 ```
 
+## Setting Up Appwrite
+
+To use Appwrite as your database, follow these steps:
+
+1. **Sign Up for an Appwrite Account**
+
+   Go to the [Appwrite website](https://appwrite.io/) and sign up for an account.
+
+2. **Create a Project**
+
+   Once you have signed up, create a new project in the Appwrite console.
+
+3. **Create a Database and Collection**
+
+   In your project, create a new database and a collection to store your contact form data.
+
+4. **Get Your Appwrite Endpoint and Project ID**
+
+   In the Appwrite console, navigate to your project settings to find your Appwrite endpoint and project ID.
+
+5. **Add Environment Variables**
+
+   Add the following environment variables to your `.env.local` file:
+
+   ```bash
+   APPWRITE_ENDPOINT=<your-appwrite-endpoint>
+   APPWRITE_PROJECT_ID=<your-appwrite-project-id>
+   APPWRITE_DATABASE_ID=<your-appwrite-database-id>
+   APPWRITE_COLLECTION_ID=<your-appwrite-collection-id>
+   ```
+
 ## Technologies
 
 - [Next.js](https://nextjs.org/)
 - [React](https://reactjs.org/)
 - [Tailwind CSS](https://tailwindcss.com/)
-- [SQLite](https://www.sqlite.org/index.html)
+- [Appwrite](https://appwrite.io/)
 - [react-icons](https://react-icons.github.io/react-icons/)
 - [lucide-react](https://lucide.netlify.app/)
