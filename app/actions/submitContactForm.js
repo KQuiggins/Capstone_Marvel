@@ -1,58 +1,24 @@
-'use server'
+'use server';
 
-import sqlite3 from 'sqlite3'
-import { open } from 'sqlite'
-
-/**
- * Opens a connection to the SQLite database.
- * @returns {Promise<sqlite3.Database>} A promise that resolves to the database connection.
- */
-
-async function openDb() {
-  return open({
-    filename: './database.sqlite',
-    driver: sqlite3.Database
-  })
-}
+import { neon } from '@neondatabase/serverless';
 
 /**
  * Submits the contact form data to the database.
- * @param {Object} data - The form data.
- * @param {string} data.name - The name of the user.
- * @param {string} data.email - The email of the user.
- * @param {string} data.message - The message from the user.
+ * @param {Object} formData - The form data as a plain object.
  * @returns {Promise<Object>} A promise that resolves to an object indicating the status.
  */
-
-export async function submitContactForm(data) {
-  const db = await openDb()
+export async function submitContactForm(formData) {
+  const sql = neon(`${process.env.DATABASE_URL}`);
+  const { name, email, message } = formData;
 
   try {
-    // Ensure the table exists
-    await db.run(`
-      CREATE TABLE IF NOT EXISTS contact_form (
-        id INTEGER PRIMARY KEY AUTOINCREMENT,
-        name TEXT NOT NULL,
-        email TEXT NOT NULL,
-        message TEXT NOT NULL
-      )
-    `)
-
-    // Destructure the form data
-    const { name, email, message } = data
-
-    // Insert the data into the database
-    await db.run(
-      'INSERT INTO contact_form (name, email, message) VALUES (?, ?, ?)',
+    await sql(
+      'INSERT INTO "public"."contact" (name, email, message) VALUES ($1, $2, $3)',
       [name, email, message]
-    )
-
-    return { status: 'success' }
+    );
+    return { status: 'success' };
   } catch (error) {
-    console.error('Database Error:', error)
-    return { status: 'error', message: error.message }
-  } finally {
-    // Ensure the database connection is closed
-    await db.close()
+    console.error('Database error:', error);
+    return { status: 'error', error: 'Failed to save the contact form data.' };
   }
 }
